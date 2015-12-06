@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>indexPage</title>
+    <meta name="viewport" content="width=device-width ,initial-scale=1 ,maximum-scale=1,user-scalable=0">
+    <link rel="stylesheet" href="dist/css/main.min.css">
+    <script src="dist/js/vue.js"></script>
+</head>
+
+<body>
+    <div class="top_tit">
+        <span class="bookBack"></span>
+        <span class="bookTitWo">学霸文库</span>
+        <span class="bookBag"></span>
+    </div>
+    <div class="lessons">
+        <div class="search">
+            <input type="text" placeholder = "课程搜索">
+            <span></span>
+        </div>
+        <p class="tagsTit">热门标签：</p>
+        <div class="tags">
+            <span>大雾</span>
+            <span>大学物理</span>
+            <span>大雾</span>
+            <span>大雾</span>
+            <span>大学物理</span>
+            <span>大雾</span>
+            
+        </div>
+    </div>
+    <div class="bookBox">
+        <div class="box">
+            <p class="boxTit">
+                <span class="icon1 icon"></span>
+                <span>本SDK依赖服务端颁发</span>
+                <span></span>
+            </p>
+            <p class="boxWord"></p>
+            <p class="msg">本SDK依赖服务端颁发upToken，可以通过以下二种方式实现： * 利用七牛服务端SDK构建后端服务 * 利用七牛底层API构建服务，详见七牛上传策略和上传凭证</p>
+            <p class="downlaod"></p>
+        </div>
+    </div>
+    <footer>
+        <span><img src="/img/bot1.png" alt=""></span>
+        <span><img src="/img/bot2.png" alt=""></span>
+        <span><img src="/img/bot3.png" alt=""></span>
+    </footer>
+</body>
+<script src="dist/js/hm.js"></script>
+<script src="dist/js/all.js"></script>
+<script>
+q('.bookBack').style.marginTop = -q('.bookBack').offsetHeight/2+'px';
+q('.bookBag').style.marginTop = -q('.bookBag').offsetHeight/2+'px';
+q('.bookTitWo').style.marginTop = -q('.bookTitWo').offsetHeight/2+'px';
+q('.bookTitWo').style.marginLeft = -q('.bookTitWo').offsetWidth/2+'px';
+q('.icon').style.height = q('.icon').offsetWidth+'px';
+</script>
+
+</html>

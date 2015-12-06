@@ -1,0 +1,241 @@
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    border: none;
+    list-style: none;
+}
+
+html,
+body {
+    font-family: '微软雅黑';
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    min-height: 100%;
+}
+
+.topBg {
+    width: 100%;
+    height: 38%;
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+    .personBack {
+        position: absolute;
+        top: 2.5%;
+        left: 5%;
+        background-image: url('/img/back.png');
+        background-size: 100% 100%;
+        display: inline-block;
+        width: 5%;
+        height: 3%;
+    }
+}
+
+.person {
+    canvas {
+        width: 100%;
+        height: 100%;
+    }
+    position: absolute;
+    top: 0;
+    width: 25%;
+    border-radius: 100px;
+    margin-left: 37%;
+    margin-top: 7%;
+    img {
+        width: 100%;
+        display: inline-block;
+        border-radius: 100px;
+        border: 4px #fff solid;
+    }
+    p {
+        margin-top: 7%;
+        color: #f6f5f4;
+        width: 100%;
+        font-size: 13px;
+        text-align: center;
+    }
+}
+
+.search {
+    position: absolute;
+    margin-left: 3%;
+    top: 31%;
+    height: 5.5%;
+    width: 94%;
+    border-radius: 3px;
+    background-color: #689f38;
+    text-align: center;
+    /* line-height: 2; */
+    font-size: 13px;
+    color: #fff;
+    span {
+        display: inline-block;
+        margin-top: -8.5px;
+        position: absolute;
+        top: 50%;
+        margin-left: -24.3px;
+    }
+}
+
+footer {
+    border-top: 1px solid #ccc;
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    display: -webkit-flex;
+    height: 8%;
+    width: 100%;
+    span {
+        display: inline-block;
+        margin-top: 2.5%;
+        width: 30%;
+        float: left;
+        flex: 1;
+        -webkit-flex: 1;
+        text-align: center;
+        img {
+            display: inline-block;
+            width: 21%;
+        }
+    }
+    background-color: #fff;
+}
+
+.personBox {
+    width: 100%;
+    margin: auto;
+    padding-top: 1px;
+    padding-bottom: 2%;
+    background-color: #e2e2e2;
+    &>div {
+        width: 94%;
+        background-color: #fff;
+        padding: 2.4% 3% 4.5% 3%;
+        .topLine {
+            align-items: flex-end;
+            -webkit-align-items: flex-end;
+            width: 100%;
+            padding: 3% 0 2%;
+            border-bottom: 1px solid #e2e2e2;
+        }
+    }
+    .lock {
+        position: relative;
+        bottom: -3px;
+        margin-right: 1.6%;
+        display: inline-block;
+        background-image: url('/img/lock.png');
+        background-size: 100% 100%;
+        width: 7%;
+    }
+    .boxTit {
+        color: #292929;
+        font-size: 16px;
+    }
+    .more {
+        position: relative;
+        bottom: -4px;
+        float: right;
+        font-size: 14px;
+        padding-top: 4px;
+        margin-right: 5%;
+    }
+    .boxMain {
+        font-size: 14px;
+        color: #292929;
+        width: 90%;
+        padding: 0px 5% 6%;
+        div {
+            border-left: solid #111 1px;
+            width: 100%;
+        }
+        .thingData {
+            padding: 4% 0;
+            width: 100%;
+            color: #999999;
+            .dot {
+                display: inline-block;
+                width: 5px;
+                height: 5px;
+                background-color: #101010;
+                position: relative;
+                left: -3px;
+                top: -2px;
+                border-radius: 5px;
+                margin-right: 2px;
+            }
+            .day {
+                display: inline-block;
+                margin-right: 8px;
+            }
+        }
+        .boxWord {
+            padding: 4% 5%;
+        }
+    }
+}
+
+.presonAbout {
+    width: 100%;
+    margin: auto;
+    padding-top: 1px;
+    padding-bottom: 6%;
+    background-color: #e2e2e2;
+    &>div {
+        width: 94%;
+        background-color: #fff;
+        padding: 2.4% 3% 4.5% 3%;
+        .topLine {
+            align-items: flex-end;
+            -webkit-align-items: flex-end;
+            width: 100%;
+            padding: 3% 0 2%;
+            border-bottom: 1px solid #e2e2e2;
+        }
+    }
+    .lock {
+        position: relative;
+        bottom: -3px;
+        margin-right: 1.6%;
+        display: inline-block;
+        background-image: url('/img/card.png');
+        background-size: 100% 100%;
+        width: 7%;
+    }
+    .boxTit {
+        color: #292929;
+        font-size: 16px;
+    }
+    .personMain {
+        font-size: 14px;
+        color: #292929;
+        width: 90%;
+        padding: 0px 5% 8%;
+        p{
+            margin-bottom: 2%;
+            span:nth-child(2){
+                display:inline-block;
+                margin-left: 1%;
+                margin-right: 6%;
+            }
+            span:nth-child(4){
+                display:inline-block;
+                margin-left: 1%;
+            }
+        }
+        p:nth-child(4){
+            min-height: 5%;
+            border:1px solid #e2e2e2;
+            overflow: hidden;
+            padding:10px;
+        }
+        .boxWord {
+            padding: 4% 5%;
+        }
+    }
+}
