@@ -13,7 +13,7 @@ var app = express();
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'jade');
 //设置文件静态路径
-app.use(express.static(path.join(__dirname, 'work')));
+app.use(express.static(path.join(__dirname, 'static')));
 app.use(express.static('views'))
 //输出http状态码
 app.use(logger('dev'));
