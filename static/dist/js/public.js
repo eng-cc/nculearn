@@ -1,0 +1,1 @@
+var q=function(n){return document.querySelector(n)},drawcanvas=function(n,e){var t=new Image;t.src=n,t.onload=function(){var n=e.getContext("2d");n.drawImage(t,0,0,e.width,e.height)}};

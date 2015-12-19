@@ -7,10 +7,13 @@ var router = express.Router();
 
 //上传
 router.post('/uploadFile', function(req, res) {
+        /*console.log(req.body);
+        res.end('sss')*/
     var file = {
         hash: req.body.hash,
         domain: req.body.domain,
         key: req.body.key,
+        size:req.body.size,
         msg: req.body.msg
     };
     var newFile = new files(file);

@@ -1,12 +1,13 @@
 var mongoose = require('mongoose');
 var opts = require('./../settings.js');
 
-mongoose.createConnection(opts.mongodb.url);
+mongoose.createConnection(opts.lomongodb.url);
 
 
 var fileSchema = new mongoose.Schema({
     domain: String,
     key: String,
+    size:Number,
     msg:String
 }, {
     collection: 'files'
@@ -14,15 +15,18 @@ var fileSchema = new mongoose.Schema({
 
 var fileModel = mongoose.model('files', fileSchema);
 
-var files = function(user) {
-    this.domain = user.domain || "",
-        this.key = user.key || ""
+var files = function(files) {
+    this.domain = files.domain || "",
+        this.key = files.key || "",
+        this.size = files.size || "",
+        this.msg = files.msg || ""
 };
 
 files.prototype.save = function(cb){
 	var newFile = {
 		domain:this.domain,
 		key:this.key,
+		size:this.size,
 		msg:this.msg
 	};
 	var file = new fileModel(newFile);

@@ -1,6 +1,9 @@
-var q = function(css){
-	return document.querySelector(css);
+var q = function(css) {
+    return document.querySelector(css);
 };
+var qa = function(css){
+    return document.querySelectorAll(css);
+}
 var drawcanvas = function(url, elm) {
     var img = new Image();
     img.src = url;
@@ -9,16 +12,27 @@ var drawcanvas = function(url, elm) {
         cxt.drawImage(img, 0, 0, elm.width, elm.height);
     };
 };
-drawcanvas('/img/1.jpg',q('#topBg'));
+var ajax = function(method, url, cb, data, dataType) {
 
-var searchBtn= document.querySelector('#searchBtn');
-var topIcon= document.querySelectorAll('.topList canvas');
-searchBtn.style.width = searchBtn.offsetHeight+'px';
-for (var i = topIcon.length - 1; i >= 0; i--) {
-	topIcon[i].style.height = topIcon[i].offsetWidth + 'px';
-	var elm = '#list'+i;
-	drawcanvas('/img/list'+i+'.png',q(elm));
+    var xhr = window.XMLHttpRequest ? new XMLHttpRequest() : new ActiveXObject('Microsoft.XMLHTTP');
+    xhr.open(method.toUpperCase(), url, true);
+    if (method.toLowerCase() == 'get') {
+        xhr.send(null);
+    } else {
+        var contentType = 'application/x-www-form-urlencoded';
+        if (dataType) {
+            if (dataType.toLowerCase() == 'json') {
+                contentType = 'application/json'
+            };
+        };
+        xhr.setRequestHeader("Content-type", contentType);
+        xhr.send(data);
+    };
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4) {
+            if (xhr.status === 200) {
+                cb(xhr.responseText);
+            };
+        };
+    };
 };
-
-
-q('html').style.minHeight = q('html').offsetHeight+'px';
