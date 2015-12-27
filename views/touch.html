@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width ,initial-scale=1 ,maximum-scale=1,user-scalable=0">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		div{
+			background:#cfd;
+			height:40px;
+			text-align:center;
+			font-size:22px;
+			border:1px #aaa solid;
+		}
+	</style>
+</head>
+<body>
+	<div class="click">click</div>
+	<div class="tap">tap</div>
+	<div class="left">left</div>
+	<div class="right">right</div>
+	<div class="top">top</div>
+	<div class="down">down</div>
+	<div class="long">long</div>
+	<div class="result">
+		
+	</div>
+</body>
+<script>
+var q = function(css){
+	return document.querySelector(css);
+};
+	var touch = function(obj, type, cb) {
+    var init = {
+        x: 4,
+        y: 4,
+        sx: 0,
+        sy: 0,
+        ex: 0,
+        ey: 0
+    };
+    stime = 0;
+    etime = 0;
+    type = type.toLowerCase();
+
+    obj.addEventListener('touchstart', function() {
+        stime = new Date().getTime();
+        init.sx = event.targetTouches[0].pageX;
+        init.sy = event.targetTouches[0].pageY;
+        init.ex = init.sx;
+        init.ey = init.sy;
+        if (type.indexOf('start') != -1) {
+            cb(type);
+        };
+    }, false);
+
+    obj.addEventListener('touchmove', function() {
+        event.preventDefault();
+        init.ex = event.targetTouches[0].pageX;
+        init.ey = event.targetTouches[0].pageY;
+        if (type.indexOf('move') != -1) {
+            cb(type);
+        };
+    }, false);
+
+    obj.addEventListener('touchend', function() {
+        var changeX = init.sx - init.ex;
+        var changeY = init.sy - init.ey;
+        if (Math.abs(changeX) > Math.abs(changeY) && Math.abs(changeY) > init.y) {
+            if (changeX > 0) {
+                if (type.indexOf("left") != -1) cb(type);
+            } else {
+                if (type.indexOf("right") != -1) cb(type);
+            }
+        } else if (Math.abs(changeY) > Math.abs(changeX) && Math.abs(changeX) > init.x) {
+            if (changeY > 0) {
+                if (type.indexOf("top") != -1) cb(type);
+            } else {
+                if (type.indexOf("down") != -1) cb(type);
+            }
+        } else if (Math.abs(changeX) < init.x && Math.abs(changeY) < init.y) {
+            etime = new Date().getTime();
+            if ((etime - stime) > 300) {
+                if (type.indexOf("long") != -1) cb(type); //长按
+            } else {
+                if (type.indexOf("tap") != -1) cb(type); //当点击处理
+            }
+        }
+        if (type.indexOf("end") != -1) cb(type);
+    });
+};
+var cb = function(msg){
+	console.log(msg);
+	q('.result').innerHTML = msg;
+}
+touch(q('.tap'),'tap',cb);
+touch(q('.long'),'long',cb);
+touch(q('.left'),'left',cb);
+touch(q('.right'),'right',cb);
+touch(q('.down'),'down',cb);
+touch(q('.top'),'top',cb);
+q('.click').onclick = function(){
+	cb('click');
+};
+
+</script>
+</html>
