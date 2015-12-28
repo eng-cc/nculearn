@@ -1,1 +1,0 @@
-var loadQiniu=function(){var i=document.createElement("div");i.innerHTML='<script src="dist/js/moxie.min.js"></script><script src="dist/js/plupload.min.js"></script><script src="dist/js/qiniu.min.js"></script>',q("body").appendChild(i)},upload=function(i){};
