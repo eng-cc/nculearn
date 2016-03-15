@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		div{
+			width:30%;
+			margin: 100px auto;
+			min-width:200px;
+		}
+		input{
+			display:inline-block;
+			width:55%;
+			margin-top:15px;
+			padding:6px 12px;
+			border:solid 1px;
+			border-color:#cdc;
+			outline:none;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<input type="text" placeholder="思想与道德">
+		<input type="text" placeholder="专业文化分">
+		<input type="text" placeholder="社会实践">
+		<input type="text" placeholder="人格与身心素质">
+		<input type="submit" value="计算">
+		<input id="result" type="text" placeholder="结果">
+	</div>
+</body>
+<script>
+	var inputs = document.getElementsByTagName('input');
+	var add = function(){
+		inputs[5].value = inputs[0].value*0.15+inputs[1].value*0.7+inputs[2].value*0.1+inputs[3].value*0.05
+	}
+	inputs[0].addEventListener('blur',add,false);
+	inputs[1].addEventListener('blur',add,false);
+	inputs[2].addEventListener('blur',add,false);
+	inputs[3].addEventListener('blur',add,false);
+	inputs[4].addEventListener('click',add,false);
+	
+</script>
+</html>
